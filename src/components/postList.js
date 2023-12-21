@@ -9,7 +9,7 @@ const Post = (props)=>(
         <td>{props.post.title}</td>
         <td>{props.post.content}</td>
         <td>
-            <Link className="btn btn-link" to={`/edit/$props.post._id`}>Edit</Link>
+            <Link className="btn btn-link" to={`/edit/${props.post._id}`}>Edit</Link>
             <button className="btn btn-Link"
                 onClick={()=>{
                     props.deletePost(props.post._id);
@@ -28,7 +28,7 @@ export default function PostList(){
     useEffect(()=>{
         async function getPosts(){
             // je vais requeter nos posts.
-            const response = await fetch(`http://localhost:4000/posts/`);
+            const response = await fetch(`http://localhost:4000/post/`);
             //si pas de réponse alors Erreur.
             if (!response.ok){
                 const message = `An error occurred: ${response.statusText}`;
@@ -48,7 +48,7 @@ export default function PostList(){
     //je créé maintenant une méthode pour supprimer nos posts.
     async function deletePost(id){
         //je récupère l'id du post que je veux supprimer
-        await fetch(`http://localhost:4000/${id}`,{
+        await fetch(`http://localhost:4000/post/${id}`,{
             //j'y ajoute la méthode de supression.
             method: "DELETE"
         });

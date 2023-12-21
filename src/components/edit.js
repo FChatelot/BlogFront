@@ -5,6 +5,7 @@ export default function Edit(){
     const[form, setForm]= useState({
         title:"",
         content:"",
+        posts:[],
     });
     const params = useParams();
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function Edit(){
             //Ici je signale que je veux récupérer les paramètres de mes posts en fonction de l'id
             const id= params.id.toString();
             //Je définis l'url où je vais récupére mes données via l'id.
-            const response= await fetch(`http://localhost:4000/posts/${params.id.toString()}`);
+            const response= await fetch(`http://localhost:4000/post/${id}`);
             if(!response.ok){
                 //si je n'ai pas de réponse, un message d'erreur s'affiche et le processus s'arrete
                 const message =`An error has occured:${response.statusText}`;
@@ -41,7 +42,7 @@ export default function Edit(){
     //cette méthode sera mise en application dans notre formulaire.
     function updateForm(value){
         return setForm((prev)=>{
-            return {...prev,...value};
+            return {...prev, ...value};
         });
     };
     //maintenant je vais configurer la soumission de notre demande.
@@ -52,12 +53,12 @@ export default function Edit(){
             content: form.content,
         };
         //j'envoie ensuite une requete post pour pouvoir mettre a jour nos données dans la db.
-        await fetch(`http://localhost:4000/posts/${params.id}`,{
-            method:"POST",
+        await fetch(`http://localhost:4000/post/${params.id}`,{
+            method:"PATCH",
             body:JSON.stringify(editedPost),
             headers:{
                 "content-Type": "application/json"
-            }
+            },
         });
         navigate("/");
 
@@ -87,6 +88,7 @@ export default function Edit(){
                     onChange={(e)=> updateForm({content: e.target.value})}
                     />
                 </div>
+                <br/>
                 <div className="form-group">
                     <input
                     type="submit"
@@ -96,5 +98,5 @@ export default function Edit(){
                 </div>
             </form>
         </div>
-    )
+    );
 };
