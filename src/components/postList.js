@@ -73,8 +73,10 @@ export default function PostList(){
             <h3>Posts List</h3>
             <table className="table table-striped" style={{marginTop:20}}>
                 <thead>
-                    <tr>Title</tr>
-                    <tr>Content</tr>
+                    <tr>
+                        <th>Title</th>
+                        <th>Content</th> 
+                    </tr>
                 </thead>
                 <tbody>{postList()}</tbody>
             </table>
