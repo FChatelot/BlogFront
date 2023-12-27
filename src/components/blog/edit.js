@@ -27,7 +27,7 @@ export default function Edit(){
             //Si j'ai une réponse mais pas l'id désiré, j'affiche un message d'erreur.
             if(!post){
                 window.alert(`post with id ${id} not found`);
-                navigate("/");
+                navigate("/blog");
                 return;
             };
             //j'applique ensuite notre requete à notre état.
@@ -60,7 +60,7 @@ export default function Edit(){
                 "content-Type": "application/json"
             },
         });
-        navigate("/");
+        navigate("/blog");
 
     };
     return(

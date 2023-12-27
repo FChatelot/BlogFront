@@ -1,6 +1,7 @@
 import React,{ useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 //ici je configure la méthode GET qui nous permettra d'afficher nos différents posts.
 //Chaque post proviendra de données stockées dans la base de données.
 //à ce la je configure des routes qui vont nous permettre de modifier ou supprimer des posts.
@@ -9,8 +10,8 @@ const Post = (props)=>(
         <td>{props.post.title}</td>
         <td>{props.post.content}</td>
         <td>
-            <Link className="btn btn-link" to={`/edit/${props.post._id}`}>Edit</Link>
-            <button className="btn btn-Link"
+            <Link className="btn btn-dark" to={`/edit/${props.post._id}`}>Edit</Link>
+            <button className="btn btn-danger"
                 onClick={()=>{
                     props.deletePost(props.post._id);
                 }}
@@ -70,7 +71,13 @@ export default function PostList(){
     // Je créé ensuite la section html qui va recueillir nos posts.*
     return(
         <div>
-            <h3>Posts List</h3>
+            <div className="d-flex justify-content-between m-4 ">
+                <h3>Posts List</h3>         
+                <Link className="btn btn-primary" to="/create">
+                    Create Post
+                </Link>
+            </div>
+            
             <table className="table table-striped" style={{marginTop:20}}>
                 <thead>
                     <tr>
@@ -80,6 +87,7 @@ export default function PostList(){
                 </thead>
                 <tbody>{postList()}</tbody>
             </table>
+
         </div>
     )
 }

@@ -42,12 +42,12 @@ export default function Create(){
         //On oublie pas de définir les données qui seront modifiées à la soumissions de notre formulaire
         setForm({title:"", content:""});
         // Je définit ensuite notre navigation post soumission.
-        navigate("/");
+        navigate("/blog");
     };
 
     //formulaire pour renseigner les nouvelles informations de création de post.
     return(
-        <div>
+        <div className="m-5">
             <h3>Create New post</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
