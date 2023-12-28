@@ -47,7 +47,7 @@ export default function Create(){
 
     //formulaire pour renseigner les nouvelles informations de création de post.
     return(
-        <div className="m-5">
+        <div className="p-5">
             <h3>Create New post</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-group">

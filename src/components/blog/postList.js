@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 //à ce la je configure des routes qui vont nous permettre de modifier ou supprimer des posts.
 const Post = (props)=>(
     <tr>
-        <td>{props.post.title}</td>
-        <td>{props.post.content}</td>
+        <td><Link to={`/single/${props.post._id}`} state={{id : props.post._id}}>{props.post.title}</Link></td>
+        <td>{`${props.post.content.substring(0,15)}...`}</td>
         <td>
             <Link className="btn btn-dark" to={`/edit/${props.post._id}`}>Edit</Link>
             <button className="btn btn-danger"
@@ -71,18 +71,18 @@ export default function PostList(){
     // Je créé ensuite la section html qui va recueillir nos posts.*
     return(
         <div>
-            <div className="d-flex justify-content-between m-4 ">
+            <div className="d-flex justify-content-between p-4 ">
                 <h3>Posts List</h3>         
                 <Link className="btn btn-primary" to="/create">
                     Create Post
                 </Link>
             </div>
             
-            <table className="table table-striped" style={{marginTop:20}}>
+            <table className="table table-hover " style={{marginTop:20}}>
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Content</th> 
+                        <th className="bg-dark-subtle">Title</th>
+                        <th className="bg-dark-subtle">Content</th> 
                     </tr>
                 </thead>
                 <tbody>{postList()}</tbody>

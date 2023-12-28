@@ -7,9 +7,10 @@ import Create from "./components/blog/create";
 import HomePage from "./components/homePage/home";
 import LogIn from "./components/authentication/authenticate";
 import Footer from "./components/footer";
+import SinglePost from "./components/blog/single";
 const App = () =>{
     return(
-        <div className="d-flex flex-column min-vh-100">
+        <div className="d-flex flex-column min-vh-100 bg-dark-subtle">
             <Navbar />
             <Routes>
                 <Route exact path="/" element={<HomePage/>} />
@@ -17,6 +18,7 @@ const App = () =>{
                 <Route path="/logIn" element={<LogIn />} />
                 <Route path="/edit/:id" element={<Edit />} />
                 <Route path="/create" element={<Create />} />
+                <Route path ="/single/:id" element = {<SinglePost/>}/>
             </Routes>
             <Footer/>
         </div>
