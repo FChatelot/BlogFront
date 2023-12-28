@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, Link} from "react-router-dom";
 
 export default function Edit(){
     const[form, setForm]= useState({
@@ -64,11 +64,11 @@ export default function Edit(){
 
     };
     return(
-        <div>
-            <h3>Update Post</h3>
+        <div className="container-fluid p-5">
+            <h3 className="text-toUpperCase" >METTRE A JOUR POST</h3>
             <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label htmlFor="title">Title:</label>
+                <div className="form-group mt-4">
+                    <label htmlFor="title">Titre:</label>
                     <input
                     type="text"
                     className="form-control"
@@ -78,8 +78,8 @@ export default function Edit(){
                     />
 
                 </div>
-                <div className="form-group">
-                    <label htmlFor="content">Content:</label>
+                <div className="form-group mt-4">
+                    <label htmlFor="content">Contenu:</label>
                     <input
                     type="text"
                     className="form-control"
@@ -89,12 +89,18 @@ export default function Edit(){
                     />
                 </div>
                 <br/>
-                <div className="form-group">
-                    <input
-                    type="submit"
-                    value="Update Post"
-                    className="btn btn-primary"
-                    />
+                
+                <div className="d-flex mt-4">
+                    <div className="form-group">
+                        <input
+                        type="submit"
+                        value="Mettre à jour"
+                        className="btn btn-primary"
+                        />
+                    </div>
+                    <button className="btn btn-secondary ms-3">
+                        <Link className="nav-link" to="/blog">Retour</Link>
+                    </button>
                 </div>
             </form>
         </div>

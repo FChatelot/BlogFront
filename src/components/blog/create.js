@@ -1,5 +1,5 @@
 import  React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 //Cette fonction va nous permettre de créer un nouveau post.
 export default function Create(){
@@ -47,11 +47,11 @@ export default function Create(){
 
     //formulaire pour renseigner les nouvelles informations de création de post.
     return(
-        <div className="p-5">
-            <h3>Create New post</h3>
+        <div className="container-fluid p-5">
+            <h3 className="text-toUpperCase">CREER UN NOUVEAU POST</h3>
             <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label htmlFor="title">Title:</label>
+                <div className="form-group mt-4">
+                    <label htmlFor="title">Titre:</label>
                     <input
                         type="text"
                         className="form-control"
@@ -60,8 +60,8 @@ export default function Create(){
                         onChange={(e)=>updateForm({title: e.target.value})}
                     />
                 </div>
-                <div className="form-group">
-                    <label htmlFor="content">Content:</label>
+                <div className="form-group mt-4">
+                    <label htmlFor="content">Contenu:</label>
                     <input
                     type="text"
                     className="form-control"
@@ -70,12 +70,17 @@ export default function Create(){
                     onChange={(e)=>updateForm({content: e.target.value})}
                 />
                 </div>
-                <div className="form-group">
-                    <input
-                    type="submit"
-                    value="Create post"
-                    className="btn btn-primary"
-                    />
+                <div className="d-flex mt-4">
+                    <div className="form-group">
+                        <input
+                        type="submit"
+                        value="Creer Post"
+                        className="btn btn-primary "
+                        />
+                    </div>
+                    <button className="btn btn-secondary ms-3">
+                        <Link className="nav-link" to="/blog">Retour</Link>
+                    </button>
                 </div>
             </form>
         </div>

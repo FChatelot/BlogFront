@@ -35,7 +35,7 @@ export default function Navbar() {
                         </li>
                         < li className="nav-item pe-5">
                             <NavLink className="nav-link" to="/logIn"/* à modifier lors de notre authentificateur final*/>
-                                Log in
+                                Se connecter
                             </NavLink>
                         </li>
                         <br/>

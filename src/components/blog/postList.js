@@ -7,16 +7,16 @@ import { Link } from "react-router-dom";
 //à ce la je configure des routes qui vont nous permettre de modifier ou supprimer des posts.
 const Post = (props)=>(
     <tr>
-        <td><Link to={`/single/${props.post._id}`} state={{id : props.post._id}}>{props.post.title}</Link></td>
-        <td>{`${props.post.content.substring(0,15)}...`}</td>
+        <td className="p-4"><Link to={`/single/${props.post._id}`} state={{id : props.post._id}}>{`${props.post.title.substring(0,15)}...`}</Link></td>
+        <td className="p-4">{`${props.post.content.substring(0,12)}...`}</td>
         <td>
-            <Link className="btn btn-dark" to={`/edit/${props.post._id}`}>Edit</Link>
-            <button className="btn btn-danger"
+            <Link className="btn btn-dark mt-2" to={`/edit/${props.post._id}`}>Editer</Link>
+            <button className="btn btn-danger mt-2"
                 onClick={()=>{
                     props.deletePost(props.post._id);
                 }}
                 >
-                Delete
+                Supprimer
                 </button>
         </td>
     </tr>
@@ -72,22 +72,22 @@ export default function PostList(){
     return(
         <div>
             <div className="d-flex justify-content-between p-4 ">
-                <h3>Posts List</h3>         
+                <h3>LISTE DE POSTS</h3>         
                 <Link className="btn btn-primary" to="/create">
-                    Create Post
+                    Nouveau Post
                 </Link>
             </div>
-            
-            <table className="table table-hover " style={{marginTop:20}}>
-                <thead>
-                    <tr>
-                        <th className="bg-dark-subtle">Title</th>
-                        <th className="bg-dark-subtle">Content</th> 
-                    </tr>
-                </thead>
-                <tbody>{postList()}</tbody>
-            </table>
-
+            <div className="container-fluid">
+                <table className="table table-hover " style={{marginTop:20}}>
+                    <thead >
+                        <tr>
+                            <th className="bg-dark-subtle p-4">Titre</th>
+                            <th className="bg-dark-subtle p-4">Contenu</th> 
+                        </tr>
+                    </thead>
+                    <tbody className="table-group-divider">{postList()}</tbody>
+                </table>
+            </div>
         </div>
     )
 }
