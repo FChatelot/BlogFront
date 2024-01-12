@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import{ useDispatch, useSelector }from "react-redux";
 import {toast} from "react-toastify";
 import Loader from "../loader";
-import { useRegisterMutation } from "./slices/userApiSlice";
-import { setCredentials } from "./slices/authSlice";
+import { useRegisterMutation } from "../../slices/userApiSlice";
+import { setCredentials } from "../../slices/authSlice";
 
 export default function Register (){
     const [name, setName]= useState("")
@@ -87,7 +87,7 @@ export default function Register (){
                         <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    
+                    {isLoading && <Loader />}
                     <div className="p-5 d-flex justify-content-center">
                         Déja inscrit ?<Link className="ps-1" to="/login">Se connecter</Link>
                     </div>
