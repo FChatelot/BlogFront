@@ -6,7 +6,7 @@ import { ReactComponent as LinkedinLogo} from "../assets/logos/linkedin-logo.svg
 import { ReactComponent as GitHubLogo} from "../assets/logos/github-logo.svg";
 import { NavLink, Link,useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { useLogoutMutation } from '../slices/usersApiSlice';
+import { useLogoutMutation } from "../slices/userApiSlice";
 import { logout } from '../slices/authSlice';
 
 

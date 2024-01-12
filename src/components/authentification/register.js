@@ -7,39 +7,39 @@ import { useRegisterMutation } from "../../slices/userApiSlice";
 import { setCredentials } from "../../slices/authSlice";
 
 export default function Register (){
-    const [name, setName]= useState("")
-    const [email, setEmail]= useState("");
-    const [password,setPassword]= useState("");
-    const [confirmPassword, setConfirmPassword] =useState("");
-
-    const navigate = useNavigate();// lance la navigation on submit
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+  
     const dispatch = useDispatch();
-
-    const { userInfo } = useSelector((state)=>state.auth);
-
-    const [register, {isLoading}] = useRegisterMutation();
-
-    useEffect(()=>{
-        if (userInfo){
-            navigate("/");
-        }
+    const navigate = useNavigate();
+  
+    const [register, { isLoading }] = useRegisterMutation();
+  
+    const { userInfo } = useSelector((state) => state.auth);
+  
+    useEffect(() => {
+      if (userInfo) {
+        navigate('/');
+      }
     }, [navigate, userInfo]);
-
-    const submitHandler = async (e)=>{
-        e.preventDefault();
-        if (password !== confirmPassword) {
-            toast.error("Passwords do not match");
-        }else{
-            try {
-                const res= await({email, password}).unwrap();
-        dispatch(setCredentials({...res}));
-        navigate("/");
-       }catch (err){
-        toast.error(err?.data?.message || err.error);
-       }
+  
+    const submitHandler = async (e) => {
+      e.preventDefault();
+  
+      if (password !== confirmPassword) {
+        toast.error('Passwords do not match');
+      } else {
+        try {
+          const res = await register({ name, email, password }).unwrap();
+          dispatch(setCredentials({ ...res }));
+          navigate('/');
+        } catch (err) {
+          toast.error(err?.data?.message || err.error);
         }
-    }
-
+      }
+    };
     return (
         <>
         <div className="container-fluid p-5">

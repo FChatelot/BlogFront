@@ -3,42 +3,37 @@ import { Link, useNavigate } from "react-router-dom";
 import{ useDispatch, useSelector }from "react-redux";
 import {toast} from "react-toastify";
 import Loader from "../loader";
-import { useRegisterMutation } from "../../slices/userApiSlice";
+
 import { setCredentials } from "../../slices/authSlice";
-import { useLoginMutation } from "../slices/userApiSlice";
+import { useLoginMutation } from "../../slices/userApiSlice";
 
-export default function Register (){
-    const [email, setEmail]= useState("");
-    const [password,setPassword]= useState("");
-
-    const navigate = useNavigate();// lance la navigation on submit
+export default function Login (){
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+  
     const dispatch = useDispatch();
-
-    const { userInfo } = useSelector((state)=>state.auth);
-
-    const [login, {isLoading}] = useLoginMutation();
-
-    useEffect(()=>{
-        if (userInfo){
-            navigate("/");
-        }
+    const navigate = useNavigate();
+  
+    const [login, { isLoading }] = useLoginMutation();
+  
+    const { userInfo } = useSelector((state) => state.auth);
+  
+    useEffect(() => {
+      if (userInfo) {
+        navigate('/');
+      }
     }, [navigate, userInfo]);
-
-    const submitHandler = async (e)=>{
-        e.preventDefault();
-        if (password !== confirmPassword) {
-            toast.error("Passwords do not match");
-        }else{
-            try {
-                const res= await({email, password}).unwrap();
-        dispatch(setCredentials({...res}));
-        navigate("/");
-       }catch (err){
+  
+    const submitHandler = async (e) => {
+      e.preventDefault();
+      try {
+        const res = await login({ email, password }).unwrap();
+        dispatch(setCredentials({ ...res }));
+        navigate('/');
+      } catch (err) {
         toast.error(err?.data?.message || err.error);
-       }
-        }
-    }
-
+      }
+    };
     return (
         <>
         <div className="container-fluid p-5">
@@ -70,7 +65,7 @@ export default function Register (){
                         <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    
+                    {isLoading && <Loader />}
                     <div className="p-5 d-flex justify-content-center">
                         Nouveau ?<Link className="ps-1" to="/register">s'inscrire</Link>
                     </div>
