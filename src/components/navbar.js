@@ -49,19 +49,19 @@ export default function Navbar() {
                 <div className='collapse navbar-collapse' id="navbarCollapse">
                     <br/>
                     <ul className="navbar-nav mr-auto">
-                    <li className="nav-item ">
-                        <NavLink className="nav-link" to ="/blog">
-                            Blog
-                        </NavLink>
+                        <li className="nav-item ">
+                            <NavLink className="nav-link" to ="/blog">
+                                Blog
+                            </NavLink>
                         </li>
                         {userInfo ? (
                         <>
-                        < li className="nav-item pe-5">
+                        <li className="nav-item pe-5">
                             <NavLink className="nav-link" to="/profile"/* à modifier lors de notre authentificateur final*/>
                                 Profil
                             </NavLink>
                         </li>
-                        < li className="nav-item pe-5">
+                        <li onClick={logoutHandler} className="nav-item pe-5">
                             <NavLink className="nav-link" to="/"/* à modifier lors de notre authentificateur final*/>
                                 Se deconnecter
                             </NavLink>
@@ -69,16 +69,16 @@ export default function Navbar() {
                         </>
                          ) : (
                         <>
-                        < li className="nav-item pe-5">
-                            <NavLink className="nav-link" to="/register"/* à modifier lors de notre authentificateur final*/>
-                                S'inscrire
-                            </NavLink>
-                            < li onClick={logoutHandler} className="nav-item pe-5">
-                            <NavLink className="nav-link" to="/logIn"/* à modifier lors de notre authentificateur final*/>
-                                Se connecter
-                            </NavLink>
-                        </li>
-                        </li>
+                            < li className="nav-item pe-5">
+                                <NavLink className="nav-link" to="/register"/* à modifier lors de notre authentificateur final*/>
+                                    S'inscrire
+                                </NavLink>
+                            </li>
+                                < li  className="nav-item pe-5">
+                                <NavLink className="nav-link" to="/login"/* à modifier lors de notre authentificateur final*/>
+                                    Se connecter
+                                </NavLink>
+                            </li>
                         </>
                          )}
                         <br/>

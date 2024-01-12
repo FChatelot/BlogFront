@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import{ useDispatch, useSelector }from "react-redux";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 import Loader from "../loader";
 
 import { setCredentials } from "../../slices/authSlice";
 import { useLoginMutation } from "../../slices/userApiSlice";
 
 export default function Login (){
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
   
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function Login (){
   
     useEffect(() => {
       if (userInfo) {
-        navigate('/');
+        navigate("/");
       }
     }, [navigate, userInfo]);
   
@@ -29,7 +29,7 @@ export default function Login (){
       try {
         const res = await login({ email, password }).unwrap();
         dispatch(setCredentials({ ...res }));
-        navigate('/');
+        navigate("/");
       } catch (err) {
         toast.error(err?.data?.message || err.error);
       }
