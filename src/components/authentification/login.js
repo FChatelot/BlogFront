@@ -7,32 +7,32 @@ import { toast } from "react-toastify";
 import Loader from "../loader";
 
 export default function Login (){
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-  
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-  
-    const [login, { isLoading }] = useLoginMutation();
-  
-    const { userInfo } = useSelector((state) => state.auth);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    useEffect(() => {
-      if (userInfo) {
-        navigate("/");
-      }
-    }, [navigate, userInfo]);
-  
-    const submitHandler = async (e) => {
-      e.preventDefault();
-      try {
-        const res = await login({ email, password }).unwrap();
-        dispatch(setCredentials({ ...res }));
-        navigate("/");
-      } catch (err) {
-        toast.error(err?.data?.message || err.error);
-      }
-    };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [login, { isLoading }] = useLoginMutation();
+
+  const { userInfo } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/");
+    }
+  }, [navigate, userInfo]);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await login({ email, password }).unwrap();
+      dispatch(setCredentials({ ...res }));
+      navigate("/");
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
     return (
         <>
         <div className="container-fluid p-5">
@@ -43,7 +43,7 @@ export default function Login (){
                         <label htmlFor="exampleInputEmail1" className="form-label">Email:</label>
                         <input type="email" 
                         className="form-control" 
-                        placeholder="votremail@email.com"
+                        placeholder="email"
                         value={email} 
                         aria-describedby="emailHelp" 
                         onChange={(e)=> setEmail(e.target.value)}/>

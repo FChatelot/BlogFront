@@ -58,7 +58,7 @@ export default function Register (){
                         <label htmlFor="exampleInputEmail1" className="form-label">Email:</label>
                         <input type="email" 
                         className="form-control" 
-                        placeholder="votremail@email.com"
+                        placeholder="email"
                         value={email} 
                         aria-describedby="emailHelp" 
                         onChange={(e)=> setEmail(e.target.value)}/>
