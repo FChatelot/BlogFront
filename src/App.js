@@ -7,7 +7,7 @@ import Create from "./components/blog/create";
 import HomePage from "./components/homePage/home";
 import Footer from "./components/footer";
 import SinglePost from "./components/blog/single";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify';
 import Login from "./components/authentification/login";
 import Register from "./components/authentification/register";

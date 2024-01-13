@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import{ useDispatch, useSelector }from "react-redux";
-import { toast } from "react-toastify";
-import Loader from "../loader";
-
 import { setCredentials } from "../../slices/authSlice";
 import { useLoginMutation } from "../../slices/userApiSlice";
+import { toast } from "react-toastify";
+import Loader from "../loader";
 
 export default function Login (){
     const [email, setEmail] = useState("");
