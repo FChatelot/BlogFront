@@ -56,26 +56,26 @@ export default function Navbar() {
                         </li>
                         {userInfo ? (
                         <>
-                        <li className="nav-item pe-5">
-                            <NavLink className="nav-link" to="/profile"/* à modifier lors de notre authentificateur final*/>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/profile">
                                 Profil
                             </NavLink>
                         </li>
                         <li onClick={logoutHandler} className="nav-item pe-5">
-                            <NavLink className="nav-link" to="/"/* à modifier lors de notre authentificateur final*/>
+                            <NavLink className="nav-link" to="/">
                                 Se deconnecter
                             </NavLink>
                         </li>
                         </>
                          ) : (
                         <>
-                            < li className="nav-item pe-5">
-                                <NavLink className="nav-link" to="/register"/* à modifier lors de notre authentificateur final*/>
+                            < li className="nav-item ">
+                                <NavLink className="nav-link" to="/register">
                                     S'inscrire
                                 </NavLink>
                             </li>
                                 < li  className="nav-item pe-5">
-                                <NavLink className="nav-link" to="/login"/* à modifier lors de notre authentificateur final*/>
+                                <NavLink className="nav-link" to="/login">
                                     Se connecter
                                 </NavLink>
                             </li>

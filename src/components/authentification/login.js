@@ -66,7 +66,7 @@ export default function Login (){
                     <button type="submit" className="btn btn-primary">Submit</button>
                     {isLoading && <Loader />}
                     <div className="p-5 d-flex justify-content-center">
-                        Nouveau ?<Link className="ps-1" to="/register">s'inscrire</Link>
+                        Nouveau ?<Link className="ps-1" to="/register">S'inscrire</Link>
                     </div>
                     
                 </form>
