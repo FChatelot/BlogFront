@@ -9,14 +9,14 @@ export const usersApiSlice = apiSlice.injectEndpoints({
             query: (data) => ({
                 url: `${USERS_URL}/auth`, //notre route dans notre api backend.
                 method:"POST",
-                body: data
+                body: data,
             }),
         }),
         register : builder.mutation({//je m'inscrit.
             query: (data) => ({
                 url: `${USERS_URL}`, //notre route dans notre api backend.
                 method:"POST",
-                body: data
+                body: data,
             }),
         }),
         logout: builder.mutation({// je delete le cookie
@@ -27,8 +27,8 @@ export const usersApiSlice = apiSlice.injectEndpoints({
             }),
         }),
         
-    })
-})
+    }),
+});
 
 export const {
     useLoginMutation,

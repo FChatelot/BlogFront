@@ -16,7 +16,7 @@ export default function Login (){
     const [login, { isLoading }] = useLoginMutation();
   
     const { userInfo } = useSelector((state) => state.auth);
-  
+
     useEffect(() => {
       if (userInfo) {
         navigate("/");
@@ -37,7 +37,7 @@ export default function Login (){
         <>
         <div className="container-fluid p-5">
             <div className="card p-4 bg-dark text-white " >
-                <h3>S'inscrire</h3>
+                <h3>Se connecter</h3>
                 <form onSubmit={submitHandler}>
                     <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">Email:</label>
