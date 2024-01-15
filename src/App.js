@@ -13,11 +13,13 @@ import Login from "./components/authentification/login";
 import Register from "./components/authentification/register";
 import Profile from "./components/authentification/profile";
 import PrivateRoute from "./components/privateRoute";
+import {Outlet} from "react-router-dom"
 const App = () =>{
     return(
         <div className="d-flex flex-column min-vh-100 bg-dark-subtle">
             <Navbar />
             <ToastContainer />
+            <Outlet/>
             <Routes>
                 <Route exact path="/" element={<HomePage/>} />
                 <Route path="/blog" element={<PostList />} />
