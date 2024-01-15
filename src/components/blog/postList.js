@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import {useSelector} from "react-redux";
 
 //ici je configure la méthode GET qui nous permettra d'afficher nos différents posts.
 //Chaque post proviendra de données stockées dans la base de données.
@@ -19,6 +19,7 @@ const Post = (props)=>(
                 Supprimer
                 </button>
         </td>
+
     </tr>
 );
 
@@ -26,6 +27,7 @@ const Post = (props)=>(
 export default function PostList(){
     const [posts, setPosts]= useState([]);// je créée un état qui permet de sélectionner notre collection de posts dans la bdd.
 //avec l'effet ci-dessous je vais récupérer nos effets dans la base de données.
+    const { userInfo } = useSelector((state) => state.auth);
     useEffect(()=>{
         async function getPosts(){
             // je vais requeter nos posts.
@@ -68,26 +70,47 @@ export default function PostList(){
             );
         });
     }
+    
     // Je créé ensuite la section html qui va recueillir nos posts.*
     return(
         <div>
-            <div className="d-flex justify-content-between p-4 ">
-                <h3>LISTE DE POSTS</h3>         
-                <Link className="btn btn-primary" to="/create">
-                    Nouveau Post
-                </Link>
-            </div>
-            <div className="container-fluid">
-                <table className="table table-hover " style={{marginTop:20}}>
-                    <thead >
-                        <tr>
-                            <th className="bg-dark-subtle p-4">Titre</th>
-                            <th className="bg-dark-subtle p-4">Contenu</th> 
-                        </tr>
-                    </thead>
-                    <tbody className="table-group-divider">{postList()}</tbody>
-                </table>
-            </div>
+           
+                {userInfo ?
+                (
+                    <>
+                        <div className="d-flex justify-content-between p-4 ">
+                            <h3>LISTE DE POSTS</h3>         
+                            <Link className="btn btn-primary" to="/create">
+                                Nouveau Post
+                            </Link>
+                        </div>
+                        <div className="container-fluid">
+                            <table className="table table-hover " style={{marginTop:20}}>
+                                <thead >
+                                    <tr>
+                                        <th className="bg-dark-subtle p-4">Titre</th>
+                                        <th className="bg-dark-subtle p-4">Contenu</th> 
+                                    </tr>
+                                </thead>
+                                <tbody className="table-group-divider">{postList()}</tbody>
+                            </table>
+                        </div>
+                    </>
+                ):(
+                    <>
+                    <div className="card  m-5 p-5">
+                        <h3 className="text-uppercase">Authentification nécessaire</h3>
+                                <p>
+                                    Il est nécessaire d'être connecté pour accéder au blog.
+                                </p>
+                                <div className="d-flex">
+                                    <Link className="btn btn-dark " to="/login">
+                                        Se connecter
+                                    </Link>
+                                </div>
+                    </div>
+                    </>
+                )}
         </div>
     )
 }

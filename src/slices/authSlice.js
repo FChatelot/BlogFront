@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+//sotckage de nos données utilisateurs dans le cookie.
 const initialState = {
   userInfo: localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")): null,
 };

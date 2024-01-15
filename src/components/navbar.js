@@ -12,18 +12,18 @@ import { logout } from '../slices/authSlice';
 
 export default function Navbar() {
         
-  const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth); //gere notre navigation si on est connecté ou non.
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [logoutApiCall] = useLogoutMutation();
+  const [logoutApiCall] = useLogoutMutation();//appel de la fonction de déconnection/ supression du cookie.
 
-  const logoutHandler = async () => {
+  const logoutHandler = async () => {//fonction pour déconnecter notre utilisateur en supprimant le cookie de connection.
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
-      navigate('/login');
+      navigate("/login");//quand on se log out on est redirigé sur la page login.
     } catch (err) {
       console.error(err);
     }
@@ -62,7 +62,7 @@ export default function Navbar() {
                             </NavLink>
                         </li>
                         <li onClick={logoutHandler} className="nav-item pe-5">
-                            <NavLink className="nav-link" to="/">
+                            <NavLink className="nav-link" to="/login">
                                 Se deconnecter
                             </NavLink>
                         </li>
