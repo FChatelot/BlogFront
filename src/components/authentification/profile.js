@@ -12,11 +12,11 @@ export default function Profile(){
     const [confirmPassword, setConfirmPassword] = useState("");
   
     const dispatch = useDispatch();
-
-  
-    const { userInfo } = useSelector((state) => state.auth);
     
     const [updateProfile, {isLoading}] = useUpdateUserMutation();
+
+    const { userInfo } = useSelector((state) => state.auth);
+
 
     useEffect(() => {
         setName(userInfo.name);
@@ -85,9 +85,8 @@ export default function Profile(){
                             value={confirmPassword} 
                             onChange={(e)=> setConfirmPassword(e.target.value)}/>
                         </div>
-                        {isLoading && <Loader />}
                         <button type="submit" className="btn btn-primary">Mettre à jour</button>
-                        
+                        {isLoading && <Loader />}
                     </form>
                 </div>
             </div>
