@@ -21,15 +21,15 @@ export default function Register (){
   
     useEffect(() => {
       if (userInfo) {
-        navigate('/');
+        navigate("/");
       }
     }, [navigate, userInfo]);
   
     const submitHandler = async (e) => {
       e.preventDefault();
   
-      if (password !== confirmPassword) {
-        toast.error('Passwords do not match');
+      if (password !== confirmPassword) {// notre confirmation d'un mot de passe identique.
+        toast.error("Erreur: Merci d'inscrire un mot de passe identique.");
       } else {
         try {
           const res = await register({ name, email, password }).unwrap();
@@ -86,7 +86,7 @@ export default function Register (){
                         <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
                         <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                     </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary">S'inscrire</button>
                 </form>
                 {isLoading && <Loader />}
                     <div className="p-5 d-flex justify-content-center">

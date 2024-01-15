@@ -63,7 +63,7 @@ export default function Login (){
                         <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
                         <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                     </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary">Se connecter</button>
                     {isLoading && <Loader />}
                     <div className="p-5 d-flex justify-content-center">
                         Nouveau ?<Link className="ps-1" to="/register">S'inscrire</Link>

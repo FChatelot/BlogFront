@@ -11,6 +11,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify';
 import Login from "./components/authentification/login";
 import Register from "./components/authentification/register";
+import Profile from "./components/authentification/profile";
+import PrivateRoute from "./components/privateRoute";
 const App = () =>{
     return(
         <div className="d-flex flex-column min-vh-100 bg-dark-subtle">
@@ -24,6 +26,11 @@ const App = () =>{
                 <Route path="/edit/:id" element={<Edit />} />
                 <Route path="/create" element={<Create />} />
                 <Route path ="/single/:id" element = {<SinglePost/>}/>
+                {/*Routes privées */}
+                <Route path="" element={<PrivateRoute/>}> 
+                    <Route path="/profile" element={<Profile/>}/>
+                </Route>
+                
             </Routes>
             <Footer/>
         </div>
