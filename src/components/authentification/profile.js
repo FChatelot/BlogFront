@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import{ useDispatch, useSelector }from "react-redux";
+import { useUpdateUserMutation } from "../../slices/userApiSlice";
 import { setCredentials } from "../../slices/authSlice";
 import {toast} from "react-toastify";
-import { useUpdateUserMutation } from "../../slices/userApiSlice";
 import Loader from "../loader";
 
 export default function Profile(){
@@ -85,8 +85,9 @@ export default function Profile(){
                             value={confirmPassword} 
                             onChange={(e)=> setConfirmPassword(e.target.value)}/>
                         </div>
-                        <button type="submit" className="btn btn-primary">Mettre à jour</button>
                         {isLoading && <Loader />}
+                        <button type="submit" className="btn btn-primary">Mettre à jour</button>
+                        
                     </form>
                 </div>
             </div>
