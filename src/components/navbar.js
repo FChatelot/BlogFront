@@ -29,7 +29,7 @@ export default function Navbar() {
     }
   };
     return(
-    <div>
+    <header>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3 text-uppercase " >
             <div className="container-fluid">
                     <NavLink className="navbar-brand" to ="/">
@@ -100,7 +100,7 @@ export default function Navbar() {
                 </div>
             </div>
         </nav>
-    </div>
+    </header>
     );
     
 };
