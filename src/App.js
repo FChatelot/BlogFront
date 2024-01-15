@@ -29,8 +29,7 @@ const App = () =>{
                 {/*Routes privées */}
                 <Route path="" element={<PrivateRoute/>}> 
                     <Route path="/profile" element={<Profile/>}/>
-                </Route>
-                
+                </Route>   
             </Routes>
             <Footer/>
         </div>
