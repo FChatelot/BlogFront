@@ -74,7 +74,6 @@ export default function PostList(){
     // Je créé ensuite la section html qui va recueillir nos posts.*
     return(
         <div>
-           
                 {userInfo ?
                 (
                     <>
@@ -100,14 +99,14 @@ export default function PostList(){
                     <>
                     <div className="card  m-5 p-5">
                         <h3 className="text-uppercase">Authentification nécessaire</h3>
-                                <p>
+                        <p>
                                     Il est nécessaire d'être connecté pour accéder au blog.
-                                </p>
-                                <div className="d-flex">
-                                    <Link className="btn btn-dark " to="/login">
+                        </p>
+                            <div className="d-flex">
+                                <Link className="btn btn-dark " to="/login">
                                         Se connecter
-                                    </Link>
-                                </div>
+                                </Link>
+                            </div>
                     </div>
                     </>
                 )}
