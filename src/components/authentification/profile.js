@@ -13,7 +13,7 @@ export default function Profile(){
   
     const dispatch = useDispatch();
     
-    const [updateProfile, {isLoading}] = useUpdateUserMutation();
+    const [updateUserProfile, {isLoading}] = useUpdateUserMutation();
 
     const { userInfo } = useSelector((state) => state.auth);
 
@@ -30,13 +30,13 @@ export default function Profile(){
         toast.error("Erreur: Merci d'inscrire un mot de passe identique.");
       } else {
         try {
-            const res = await updateProfile({
+            const res = await updateUserProfile({
                 _id: userInfo._id,
                 name,
                 email,
                 password,
             }).unwrap();
-            dispatch(setCredentials({...res}));
+            dispatch(setCredentials(res));
             toast.success("Profil mis à jours!");
         } catch (err) {
             toast.error(err?.data?.message || err.error);
