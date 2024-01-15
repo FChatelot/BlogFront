@@ -17,7 +17,7 @@ const App = () =>{
     return(
         <div className="d-flex flex-column min-vh-100 bg-dark-subtle">
             <Navbar />
-                <ToastContainer />
+            <ToastContainer />
             <Routes>
                 <Route exact path="/" element={<HomePage/>} />
                 <Route path="/blog" element={<PostList />} />
