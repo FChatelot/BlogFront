@@ -9,6 +9,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
             query: (data) => ({
                 url: `${USERS_URL}/auth`, //notre route dans notre api backend.
                 method:"POST",
+                mode: 'cors',
                 body: data,
             }),
         }),
@@ -16,6 +17,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
             query: (data) => ({
                 url: `${USERS_URL}`, //notre route dans notre api backend.
                 method:"POST",
+                mode: 'cors',
                 body: data,
             }),
         }),
@@ -23,12 +25,14 @@ export const usersApiSlice = apiSlice.injectEndpoints({
             query:()=>({
                 url:`${USERS_URL}/logout`,
                 method:"POST",
+                mode: 'cors',
             }),
         }),
         updateUser: builder.mutation({//je met à jour mes datas.
             query: (data) => ({
                 url: `${USERS_URL}/profile`, //notre route dans notre api backend.
                 method:"PUT",
+                mode: 'cors',
                 body: data,
             }),
         }),
