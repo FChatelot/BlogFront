@@ -15,7 +15,7 @@ export default function Edit(){
             //Ici je signale que je veux récupérer les paramètres de mes posts en fonction de l'id
             const id= params.id.toString();
             //Je définis l'url où je vais récupére mes données via l'id.
-            const response= await fetch(`http://localhost:4000/post/${id}`);
+            const response= await fetch(`https://shielded-eyrie-12790-2606840fb7b6.herokuapp.com/post/${params.id}`);
             if(!response.ok){
                 //si je n'ai pas de réponse, un message d'erreur s'affiche et le processus s'arrete
                 const message =`An error has occured:${response.statusText}`;
@@ -53,7 +53,7 @@ export default function Edit(){
             content: form.content,
         };
         //j'envoie ensuite une requete post pour pouvoir mettre a jour nos données dans la db.
-        await fetch(`http://localhost:4000/post/${params.id}`,{
+        await fetch(`http://localhost:4000/post/${params.id}`||`https://shielded-eyrie-12790-2606840fb7b6.herokuapp.com/post/${params.id}`,{
             method:"PATCH",
             body:JSON.stringify(editedPost),
             headers:{
