@@ -6,12 +6,13 @@ import { ReactComponent as Imongo} from "../../assets/svg/mongodb-icon.svg";
 import { ReactComponent as Inode} from "../../assets/svg/nodejs-icon.svg";
 import { ReactComponent as Ireact} from "../../assets/svg/react-icon.svg";
 import CardBlog from "../../assets/img/blogCard.png";
+import CardAuth from"../../assets/img/authCard.png";
 
 function HeroBanner(){
 return(
     <div className="container-fluid p-5">
         <h1 className="text-uppercase">Bienvenue sur mon Premier Site</h1>
-        <p>Bienvenue sur la Version 1.0 de mon premier site, entièrement créé en Javascript. </p>
+        <p>Bienvenue sur la Version 2.0 de mon premier site, entièrement créé en Javascript. </p>
         <p>Ce site a été conçu grâce à React pour la partie Frontend et node.js et Express.js pour la partie Backend.
             <br/>
             En parallèle, le site est connecté à une base de données NoSQL MongoDB et le css est
@@ -77,10 +78,11 @@ function Projets(){
             <div className="row g-0">
                 <div className="col-md-8 p-4">
                     <h2 className="card-title">Les élements du site</h2>
-                    <p className="card-text">Le site en est à sa première version. Vous y trouverez implanté une simulation
-                    de blog basique avec la création, l'édition et supression de posts. Il est à noter qu'une version 2 va être développée
-                    par la suite avec un systeme d'identification qu'il faut encore concevoir à l'heure où j'écris ces lignes.
-                    Le code côté front nécessite une refactorisation mais je manque encore de maitrise.
+                    <br/>
+                    <h4>La V1:</h4>
+                    <p className="card-text">Lors de la première version, le site disposait d'un blog simple permettant de creer, modifier, supprimer et voir les posts. 
+                    J'y ai ensuite implanté un rate limiter permettant d'eviter de spammer la création de posts, empechant ainsi la base de données de crasher sous l'aflux 
+                    massif de requetes!
                     </p>
                     <br/>
                      <button className="btn btn-light">   
@@ -91,6 +93,29 @@ function Projets(){
                 </div>
                 <div className="col-md-4 p-5">
                     <img src={CardBlog} className="img-fluid rounded" alt="cardblog"/>
+                </div>
+                <div className="col-md-8 p-4">
+                    <h4>La V2:</h4>
+                    <p className="card-text">Afin d'offrir plus de sécurité au blog, j'ai décidé d'implenter un systeme d'authentication ce qui a nécessité de changer la structure
+                    de mon back et de mon front. J'ai en effet utilisé Mongoose pour maintenant traiter les infos de ma base de données alors que je ne l'utilisait pas pour les
+                    posts du blog auparavant. D'autre part j'ai choisi volontairement de tester l'adaptabilité de mon back eu front en créant une structure différente du front
+                    pour mes différentes requetes. Le blog utilise donc une méthode de fetch alors que le systeme d'authentication utilise react-redux-tookit.
+                    </p>
+                    <br/>
+                     <button className="btn btn-light">   
+                        <Link className="nav-link" to="/register">
+                            S'inscrire
+                        </Link>  
+                    </button>
+                    <br/>
+                    <br/>
+                    <p>Le site utilise maintenant un cookie de connexion. Bien qu'il ne soit pas possible d'obtenir le mot de passe, il est toute fois possible d'obtenir 
+                        des données concernant le pseudo, l'id et l'email de l'utilisateur, ce qui constitue une faille de sécurité majeure qui devra être fixée dans la prochaine 
+                        version.
+                    </p>
+                </div>
+                <div className="col-md-4 p-5">
+                    <img src={CardAuth} className="img-fluid rounded border" alt="cardblog"/>
                 </div>
             </div>
         </div>

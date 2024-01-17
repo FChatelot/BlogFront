@@ -31,7 +31,7 @@ export default function PostList(){
     useEffect(()=>{
         async function getPosts(){
             // je vais requeter nos posts.
-            const response = await fetch(`https://shielded-eyrie-12790-2606840fb7b6.herokuapp.com/post/`||`http://localhost:4000/post/`);
+            const response = await fetch(`https://shielded-eyrie-12790-2606840fb7b6.herokuapp.com/post/`);//`http://localhost:4000/post/` en dev mode
             //si pas de réponse alors Erreur.
             if (!response.ok){
                 const message = `An error occurred: ${response.statusText}`;
@@ -51,7 +51,7 @@ export default function PostList(){
     //je créé maintenant une méthode pour supprimer nos posts.
     async function deletePost(id){
         //je récupère l'id du post que je veux supprimer
-        await fetch(`https://shielded-eyrie-12790-2606840fb7b6.herokuapp.com/post/${id}`||`http://localhost:4000/post/${id}`,{
+        await fetch(`https://shielded-eyrie-12790-2606840fb7b6.herokuapp.com/post/${id}`,{ // `http://localhost:4000/post/${id}` en dev mode
             //j'y ajoute la méthode de supression.
             method: "DELETE"
         });
