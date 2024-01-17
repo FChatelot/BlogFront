@@ -53,7 +53,7 @@ export default function Edit(){
             content: form.content,
         };
         //j'envoie ensuite une requete post pour pouvoir mettre a jour nos données dans la db.
-        await fetch(`http://localhost:4000/post/${params.id}`||`https://shielded-eyrie-12790-2606840fb7b6.herokuapp.com/post/${params.id}`,{
+        await fetch(`https://shielded-eyrie-12790-2606840fb7b6.herokuapp.com/post/${params.id}` || `http://localhost:4000/post/${params.id}`,{
             method:"PATCH",
             body:JSON.stringify(editedPost),
             headers:{

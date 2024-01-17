@@ -27,7 +27,7 @@ export default function Create(){
         // Je stock dans cette variable les données de notre état form
         const newPost ={...form};
         //je récupère l'adresse serveur side ou je vais envoyer les données de la bd
-        await fetch ("http://localhost:4000/post" || "https://shielded-eyrie-12790-2606840fb7b6.herokuapp.com/post",{
+        await fetch ("https://shielded-eyrie-12790-2606840fb7b6.herokuapp.com/post"||"http://localhost:4000/post"  ,{
             method:"POST",
             headers:{
                 "Content-Type": "application/json",
