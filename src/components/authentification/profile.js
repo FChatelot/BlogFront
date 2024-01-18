@@ -37,7 +37,7 @@ export default function Profile(){
                 password,
             }).unwrap();
             dispatch(setCredentials({ ...res }));
-            toast.success("Profil mis à jours!");
+            toast.success("Profil mis à jour!");
         } catch (err) {
             toast.error(err?.data?.message || err.error);
           }

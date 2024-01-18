@@ -35,7 +35,7 @@ export default function PostList(){
             //si pas de réponse alors Erreur.
             if (!response.ok){
                 const message = `An error occurred: ${response.statusText}`;
-                window.alert(message);
+                console.error(message);
                 return;
             }
             //je stock dans notre variable notre réponse.

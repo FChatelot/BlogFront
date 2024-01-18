@@ -77,9 +77,9 @@ function Projets(){
         <div className=" mb-3 bg-dark text-white p-4" >
             <div className="row g-0">
                 <div className="col-md-8 p-4">
-                    <h2 className="card-title">Les élements du site</h2>
+                    <h2 className="card-title text-uppercase">Les élements du site</h2>
                     <br/>
-                    <h4>La V1:</h4>
+                    <h4 className="text-uppercase">La V1:</h4>
                     <p className="card-text">Lors de la première version, le site disposait d'un blog simple permettant de creer, modifier, supprimer et voir les posts. 
                     J'y ai ensuite implanté un rate limiter permettant d'eviter de spammer la création de posts, empechant ainsi la base de données de crasher sous l'aflux 
                     massif de requetes!
@@ -95,11 +95,11 @@ function Projets(){
                     <img src={CardBlog} className="img-fluid rounded" alt="cardblog"/>
                 </div>
                 <div className="col-md-8 p-4">
-                    <h4>La V2:</h4>
-                    <p className="card-text">Afin d'offrir plus de sécurité au blog, j'ai décidé d'implenter un systeme d'authentication ce qui a nécessité de changer la structure
+                    <h4 className="text-uppercase">La V2:</h4>
+                    <p className="card-text">Afin d'offrir plus de sécurité au blog, j'ai décidé d'implanter un systeme d'authentification ce qui a nécessité de changer la structure
                     de mon back et de mon front. J'ai en effet utilisé Mongoose pour maintenant traiter les infos de ma base de données alors que je ne l'utilisait pas pour les
-                    posts du blog auparavant. D'autre part j'ai choisi volontairement de tester l'adaptabilité de mon back eu front en créant une structure différente du front
-                    pour mes différentes requetes. Le blog utilise donc une méthode de fetch alors que le systeme d'authentication utilise react-redux-tookit.
+                    posts du blog auparavant. D'autre part j'ai choisi volontairement de tester l'adaptabilité de mon back avec le front en créant une structure différente du front
+                    pour mes différentes requetes. Le blog utilise donc une méthode de fetch alors que le systeme d'authentification utilise react-redux-tookit.
                     </p>
                     <br/>
                      <button className="btn btn-light">   
@@ -125,14 +125,45 @@ function Projets(){
 function Next(){
     return (
     <div className="container-fluid p-5">
-        <h2 className="text-uppercase">A venir</h2>
-        <p>Afin de perfectionner cet espace de blog je prévois d'implanter 
-            pour la v2 une fonctionnalité de connection avec un systeme 
-            d'authentication ainsi qu'une page de gestion de profil, le tout
-            fonctionnant de concert avec le blog. A celà sera ajouté un systeme 
-            d'autorisation, donnant la permission ou non de supprimer, créer, éditer
-             ou encore juste lire un post du blog. J'améliorerai aussi la sécurité 
-             générale du site.
+        <h2 className="text-uppercase">Patch notes des versions précédentes</h2>
+        <h4 className="text-uppercase">Version 1.0:</h4>
+        <p>
+            -Déploiement du site sur Heroku; 
+            <br/>
+            -Mise en place du blog linké a la base de données mongoDB.
+        </p>
+        <h4 className="text-uppercase">Version 1.5:</h4>
+        <p>
+            -Mise en place d'un rate limitter pour gerer les flux de données liés a la création de posts du blog.
+        </p>
+        <h4 className="text-uppercase">Version 2.0:</h4>
+        <p>
+            -Optimisation du back avec mise en place d'un systeme de schema pour la gestion des données;
+            <br/>
+            -Cryptage de données telles que les mots de passe.;
+            <br/>
+            -Implémentation d'un systeme d'authentification utilisant un jeton de connexion;
+            <br/>
+            -Blog nécessitant maintenant une authentification pour y accéder.
+        </p>
+        <h4 className="text-uppercase">A venir: Version 2.1</h4>
+        <p>
+            -Correction des failles de sécurités liées aux informations du cookie de connexion;
+            <br/>
+            -Amélioration générale de l'UX-UI;
+            <br/>
+            -Complexification des formulaires d'authentification et déploiement de mesures de sécurité telles qu'un captcha ou d'une vérification d'emails.
+        </p>
+
+        <h2 className="text-uppercase">Futurs Ajouts:</h2>
+        <p>
+            -Ajout de nouvelles fonctionnalités au blog; 
+            <br/>
+            -Amélioration générale de la sécurité du site;
+            <br/>
+            -Gestion des images en vue de les ajouter au profil utilisateur et au blog;
+            <br/>
+            -Ajout de la possibilité de commenter les posts du blog.
         </p>
     </div>
     )
