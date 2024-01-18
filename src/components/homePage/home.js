@@ -108,15 +108,16 @@ function Projets(){
                         </Link>  
                     </button>
                     <br/>
-                    <br/>
-                    <p>Le site utilise maintenant un cookie de connexion. Bien qu'il ne soit pas possible d'obtenir le mot de passe, il est toutefois possible d'obtenir 
-                        des données concernant le pseudo, l'id et l'email de l'utilisateur, ce qui constitue une faille de sécurité majeure qui devra être fixée dans la prochaine 
-                        version.
-                    </p>
+                   
                 </div>
                 <div className="col-md-4 p-5">
                     <img src={CardAuth} className="img-fluid rounded border" alt="cardblog"/>
                 </div>
+                <br/>
+                    <p className="p-4">Le site utilise maintenant un cookie de connexion. Bien qu'il ne soit pas possible d'obtenir le mot de passe, il est toutefois possible d'obtenir 
+                        des données concernant le pseudo, l'id et l'email de l'utilisateur, ce qui constitue une faille de sécurité majeure qui devra être fixée dans la prochaine 
+                        version.
+                    </p>
             </div>
         </div>
     )
