@@ -77,11 +77,11 @@ function Projets(){
         <div className=" mb-3 bg-dark text-white p-4" >
             <div className="row g-0">
                 <div className="col-md-8 p-4">
-                    <h2 className="card-title text-uppercase">Les élements du site</h2>
+                    <h2 className="card-title text-uppercase">Les élements du site:</h2>
                     <br/>
                     <h4 className="text-uppercase">La V1:</h4>
                     <p className="card-text">Lors de la première version, le site disposait d'un blog simple permettant de creer, modifier, supprimer et voir les posts. 
-                    J'y ai ensuite implanté un rate limiter permettant d'eviter de spammer la création de posts, empechant ainsi la base de données de crasher sous l'aflux 
+                    J'y ai ensuite implanté un rate limiter permettant d'eviter de spammer la création de posts, empechant ainsi la base de données de crasher sous l'afflux 
                     massif de requetes!
                     </p>
                     <br/>
@@ -99,7 +99,7 @@ function Projets(){
                     <p className="card-text">Afin d'offrir plus de sécurité au blog, j'ai décidé d'implanter un systeme d'authentification ce qui a nécessité de changer la structure
                     de mon back et de mon front. J'ai en effet utilisé Mongoose pour maintenant traiter les infos de ma base de données alors que je ne l'utilisait pas pour les
                     posts du blog auparavant. D'autre part j'ai choisi volontairement de tester l'adaptabilité de mon back avec le front en créant une structure différente du front
-                    pour mes différentes requetes. Le blog utilise donc une méthode de fetch alors que le systeme d'authentification utilise react-redux-tookit.
+                    pour mes différentes requetes. Le blog utilise donc une méthode de fetch alors que le systeme d'authentification utilise react-redux-toolkit.
                     </p>
                     <br/>
                      <button className="btn btn-light">   
@@ -109,7 +109,7 @@ function Projets(){
                     </button>
                     <br/>
                     <br/>
-                    <p>Le site utilise maintenant un cookie de connexion. Bien qu'il ne soit pas possible d'obtenir le mot de passe, il est toute fois possible d'obtenir 
+                    <p>Le site utilise maintenant un cookie de connexion. Bien qu'il ne soit pas possible d'obtenir le mot de passe, il est toutefois possible d'obtenir 
                         des données concernant le pseudo, l'id et l'email de l'utilisateur, ce qui constitue une faille de sécurité majeure qui devra être fixée dans la prochaine 
                         version.
                     </p>
