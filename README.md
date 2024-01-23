@@ -1,3 +1,5 @@
+/!\/!\/!\/!\/!\/!\/!\/!\ N'oubliez pas de changer les URLs pour coincicer avec les back /!\/!\/!\/!\/!\/!\/!\/!\
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
